@@ -24,9 +24,19 @@ jobs:
         with:
           node-version: "22"
       - run: npm install
-      - run: npm run build
+      - name: Build static site
         env:
           NITRO_PRESET: github_pages
+        run: |
+          set +e
+          npm run build
+          # Vite 8 / Nitro github-pages prerenders .output/public, then fails on a
+          # leftover SSR rolldown step. The static site is already complete.
+          test -f .output/public/index.html
+          test -f .output/public/404.html
+          mkdir -p .output/public/docs/screenshots
+          cp -f docs/screenshots/*.svg .output/public/docs/screenshots/ || true
+          touch .output/public/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
