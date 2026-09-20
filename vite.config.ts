@@ -4,7 +4,10 @@ import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import { nitro } from "nitro/vite";
 
+const githubPages = process.env.NITRO_PRESET === "github_pages";
+
 export default defineConfig(({ command, isPreview }) => ({
+  base: githubPages ? "/ossuary/" : "/",
   server: {
     host: "0.0.0.0",
     port: 8080,
@@ -14,7 +17,9 @@ export default defineConfig(({ command, isPreview }) => ({
   plugins: [
     tailwindcss(),
     tanstackStart(),
-    ...(command === "build" || isPreview ? [nitro({ preset: "vercel" })] : []),
+    ...(command === "build" || isPreview
+      ? [nitro({ preset: githubPages ? "github_pages" : "vercel" })]
+      : []),
     viteReact(),
   ],
 }));

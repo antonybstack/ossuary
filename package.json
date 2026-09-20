@@ -1,6 +1,7 @@
 {
   "name": "ossuary",
   "private": true,
+  "homepage": "https://antonybstack.github.io/ossuary/",
   "sideEffects": false,
   "type": "module",
   "scripts": {
