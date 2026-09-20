@@ -8,8 +8,6 @@ Customize soul-fire, weapon, and armor, then hunt wights under a moonlit crypt.
 
 **[Play Ossuary](https://antonybstack.github.io/ossuary/)**
 
-Live URL: https://antonybstack.github.io/ossuary/
-
 ## Screenshots
 
 Title screen — name your undead, pick soul-fire, weapon, and armor:
@@ -19,6 +17,10 @@ Title screen — name your undead, pick soul-fire, weapon, and armor:
 Grave scythe + Boneplate loadout before descending into the crypt:
 
 ![Ossuary loadout](docs/screenshots/loadout.svg)
+
+Moonlit crypt — hunt wights among the graves:
+
+![Ossuary graveyard](docs/screenshots/graveyard.svg)
 
 ## Controls
 
